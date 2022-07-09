@@ -15,11 +15,14 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React,{useState} from "react";
+import AddItemField from "components/addItemField";
 
 // reactstrap components
 import {
   Card,
+  Button,
+  CardFooter,
   CardHeader,
   CardBody,
   CardTitle,
@@ -31,7 +34,15 @@ import {
   Col
 } from "reactstrap";
 
-function Tables() {
+const Tables = ()=> {
+
+  
+  const [showAddItem,setShowAddItem] = useState(false);
+
+
+  let addItem = ()=>{
+    setShowAddItem(true);
+  }
   return (
     <>
       <div className="content">
@@ -53,28 +64,34 @@ function Tables() {
                         <th>Price (Rs)</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tableBody">
                       <tr>
                         <td>01</td>
                         <td><img style={{ "height": "6em" }} alt="" src="https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png?w=1024"></img></td>
                         <td>Rice</td>
                         <td>
-                          <Col className="pl-md-1" md="4">
+                          <Col className="pl-md-1" md="8">
                             <FormGroup>
                               <Input placeholder="Quantity" defaultValue={200} type="number" />
                             </FormGroup>
                           </Col></td>
                         <td className="text-center">
-                          <Col className="pl-md-1" md="4">
+                          <Col className="pl-md-1" md="8">
                             <FormGroup>
                               <Input placeholder="Quantity" defaultValue={200} type="number" />
                             </FormGroup>
                           </Col>
                         </td>
                       </tr>
+                      {showAddItem && <AddItemField setShowAddItem={setShowAddItem} check={showAddItem}/>}
                     </tbody>
                   </Table>
                 </CardBody>
+                <CardFooter>
+                  <Button onClick={addItem} className="btn-fill" color="primary">
+                    Add Items
+                  </Button>
+                </CardFooter>
               </Card>
             </Col>
           </Row>

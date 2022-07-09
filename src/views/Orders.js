@@ -65,10 +65,10 @@ function Orders() {
                                         <tr>
                                             <td>01</td>
                                             <td>Ebin</td>
-                                            <td>Snuggies</td>
+                                            <td>Biscuit</td>
                                             <td>10</td>
                                             <td className="text-center">50</td>
-                                            <td>
+                                            <td className='text-center'>
                                                 <FormGroup>
                                                     <Input type='checkbox' defaultChecked={true}></Input>
                                                 </FormGroup>
