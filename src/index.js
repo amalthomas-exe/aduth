@@ -22,12 +22,10 @@ root.render(
     <BackgroundColorWrapper>
       <BrowserRouter>
         <Switch>
-        {
-            (localStorage.getItem("tokenId")!==null)?`<Redirect from="/" to="/admin/dashboard" />`:`<Redirect from="/" to="/login">`
-          }
           <Route path="/admin" render={(props) => <Admin {...props} />} />
           <Route path="/customer" render={(props) => <Customer {...props} />} />
           <Route path="/login" render={(props)=><LoginPage {...props} />} />
+          <Redirect from="/" to={(!true)?"/admin/dashboard":"/login"} />
         </Switch>
       </BrowserRouter>
     </BackgroundColorWrapper>

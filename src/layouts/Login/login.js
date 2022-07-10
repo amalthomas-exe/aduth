@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import {
     Card,
     CardHeader,
@@ -13,6 +14,10 @@ import {
     CardTitle
 } from 'reactstrap'
 function LoginPage() {
+    const login = ()=>{
+        alert("login");
+        <Redirect path='/data' />
+    }
     return (
         <>
             <div className='container mx-auto' style={{"min-height":"100vh","display":"flex","alignItems":"center"}}>
@@ -21,7 +26,7 @@ function LoginPage() {
                         <CardTitle><h2>Login/ Signup</h2></CardTitle>
                     </CardHeader>
                     <CardBody>
-                        <Form>
+                        <Form action='/admin/dashboard'>
                             <Col className='md-4'>
                                 <Row className="px-md-3" md="5">
                                     <FormGroup>
@@ -46,7 +51,7 @@ function LoginPage() {
                     </Form>
                 </CardBody>
                 <CardFooter className='mx-auto'>
-                    <Button className='btn btn-fill' color='success'>Login/Signup</Button>
+                    <Button className='btn btn-fill' color='success' onClick={login}>Login/Signup</Button>
                 </CardFooter>
             </Card>
         </div>
