@@ -13,6 +13,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import ThemeContextWrapper from "./components/ThemeWrapper/ThemeWrapper";
 import BackgroundColorWrapper from "./components/BackgroundColorWrapper/BackgroundColorWrapper";
 import Customer from "layouts/Customer/Customer";
+import LoginPage from "layouts/Login/login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -21,9 +22,12 @@ root.render(
     <BackgroundColorWrapper>
       <BrowserRouter>
         <Switch>
+        {
+            (localStorage.getItem("tokenId")!==null)?`<Redirect from="/" to="/admin/dashboard" />`:`<Redirect from="/" to="/login">`
+          }
           <Route path="/admin" render={(props) => <Admin {...props} />} />
           <Route path="/customer" render={(props) => <Customer {...props} />} />
-          <Redirect from="/" to="/admin/dashboard" />
+          <Route path="/login" renger={(props)=><LoginPage {...props} />} />
         </Switch>
       </BrowserRouter>
     </BackgroundColorWrapper>

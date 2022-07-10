@@ -18,8 +18,6 @@ import {
 import ItemRow from "components/itemRow";
 
 const Tables = () => {
-
-
   const [showAddItem, setShowAddItem] = useState(false);
 
   let addItem = () => {
