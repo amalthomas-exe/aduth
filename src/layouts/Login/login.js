@@ -18,7 +18,7 @@ function LoginPage() {
             <div className='container mx-auto' style={{"min-height":"100vh","display":"flex","alignItems":"center"}}>
                 <Card className='mx-auto container'>
                     <CardHeader className='mx-auto'>
-                        <CardTitle>Login/ Signup</CardTitle>
+                        <CardTitle><h2>Login/ Signup</h2></CardTitle>
                     </CardHeader>
                     <CardBody>
                         <Form>
