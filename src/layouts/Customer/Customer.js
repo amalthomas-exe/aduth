@@ -8,14 +8,14 @@ import PerfectScrollbar from "perfect-scrollbar";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 
-import AdminRoutes from "adminRoutes";
+import CustomerRoutes from "customerRoutes";
 
 import logo from "assets/img/wicker-basket.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
 var ps;
 
-function Admin(props) {
+function Customer(props) {
   const location = useLocation();
   const mainPanelRef = React.useRef(null);
   const [sidebarOpened, setsidebarOpened] = React.useState(
@@ -61,8 +61,8 @@ function Admin(props) {
     setsidebarOpened(!sidebarOpened);
   };
   const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+    return CustomerRoutes.map((prop, key) => {
+      if (prop.layout === "/customer") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -76,9 +76,9 @@ function Admin(props) {
     });
   };
   const getBrandText = (path) => {
-    for (let i = 0; i < AdminRoutes.length; i++) {
-      if (location.pathname.indexOf(AdminRoutes[i].layout + AdminRoutes[i].path) !== -1) {
-        return AdminRoutes[i].name;
+    for (let i = 0; i < CustomerRoutes.length; i++) {
+      if (location.pathname.indexOf(CustomerRoutes[i].layout + CustomerRoutes[i].path) !== -1) {
+        return CustomerRoutes[i].name;
       }
     }
     return "Brand";
@@ -89,7 +89,7 @@ function Admin(props) {
         <React.Fragment>
           <div className="wrapper">
             <Sidebar
-              routes={AdminRoutes}
+              routes={CustomerRoutes}
               logo={{
                 text: "Aduth",
                 imgSrc: logo
@@ -103,8 +103,8 @@ function Admin(props) {
                 sidebarOpened={sidebarOpened}
               />
               <Switch>
-                {getRoutes(AdminRoutes)}
-                <Redirect from="*" to="/admin/dashboard" />
+                {getRoutes(CustomerRoutes)}
+                <Redirect from="*" to="/customer/dashboard" />
               </Switch>
             </div>
           </div>
@@ -114,4 +114,4 @@ function Admin(props) {
   );
 }
 
-export default Admin;
+export default Customer;

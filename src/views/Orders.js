@@ -6,13 +6,18 @@ import {
     Form,
     FormGroup,
     Input,
+    Button,
     CardTitle,
     Table,
     Row,
     Col
 } from "reactstrap";
+import OrdersRow from 'components/ordersRow';
 
 function Orders() {
+
+    const completeOrder = ()=>{
+    }
     return (
         <><div className="content">
             <Form>
@@ -34,13 +39,7 @@ function Orders() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>01</td>
-                                            <td>Alwin</td>
-                                            <td>Rice</td>
-                                            <td>5kg</td>
-                                            <td className="text-center">200</td>
-                                        </tr>
+                                        <OrdersRow no={1} customer="Alwin" order="Rice" quantity="5kg" price={500} completed={true}/>
                                     </tbody>
                                 </Table>
                             </CardBody>
@@ -62,18 +61,7 @@ function Orders() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>01</td>
-                                            <td>Ebin</td>
-                                            <td>Biscuit</td>
-                                            <td>10</td>
-                                            <td className="text-center">50</td>
-                                            <td className='text-center'>
-                                                <FormGroup>
-                                                    <Input type='checkbox' defaultChecked={true}></Input>
-                                                </FormGroup>
-                                            </td>
-                                        </tr>
+                                        <OrdersRow no={2} customer="Ebin" order="Biscuit" quantity={10} price={100} completed={false} completeOrder={completeOrder}/>
                                     </tbody>
                                 </Table>
                             </CardBody>
