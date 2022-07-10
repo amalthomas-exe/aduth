@@ -22,7 +22,7 @@ function LoginPage() {
                     </CardHeader>
                     <CardBody>
                         <Form>
-                            <Col>
+                            <Col className='md-4'>
                                 <Row className="px-md-3" md="5">
                                     <FormGroup>
                                         <label htmlFor='username'>Username</label>
@@ -46,7 +46,7 @@ function LoginPage() {
                     </Form>
                 </CardBody>
                 <CardFooter className='mx-auto'>
-                    <Button className='btn btn-fill'>Login/Signup</Button>
+                    <Button className='btn btn-fill' color='success'>Login/Signup</Button>
                 </CardFooter>
             </Card>
         </div>
