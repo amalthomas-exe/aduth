@@ -27,7 +27,7 @@ root.render(
           }
           <Route path="/admin" render={(props) => <Admin {...props} />} />
           <Route path="/customer" render={(props) => <Customer {...props} />} />
-          <Route path="/login" renger={(props)=><LoginPage {...props} />} />
+          <Route path="/login" render={(props)=><LoginPage {...props} />} />
         </Switch>
       </BrowserRouter>
     </BackgroundColorWrapper>
